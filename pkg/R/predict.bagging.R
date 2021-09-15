@@ -51,7 +51,8 @@ predict.classbagg <- function(object, newdata=NULL, type=c("class", "prob"),
       vote[tindx] <- vote[tindx] + 1
     }
     if (type=="class") {
-      RET <- factor(classes[apply(vote, 1, uwhich.max)])
+      RET <- factor(classes[apply(vote, 1, uwhich.max)], 
+                    levels = classes, labels = classes)
     } else {
       RET <- vote/apply(vote, 1, sum)
       colnames(RET) <- classes
@@ -73,8 +74,8 @@ predict.classbagg <- function(object, newdata=NULL, type=c("class", "prob"),
       cprob[tindx,] <- cprob[tindx,] + pred
     }
     switch(type, "class" = {
-      RET <- as.factor(apply(cprob, 1, uwhich.max))
-      levels(RET) <- classes
+      RET <- factor(classes[apply(cprob, 1, uwhich.max)], 
+                    levels = classes, labels = classes)
     }, 
     "prob" = {
       ncount[ncount < 1] <- NA
@@ -100,8 +101,8 @@ predict.classbagg <- function(object, newdata=NULL, type=c("class", "prob"),
     switch(type, "class" = {
       RET <- c()
       for (j in 1:N)
-        RET <- as.factor(c(RET, uwhich.max(agglsample[j,])))
-      levels(RET) <- classes
+        RET <- c(RET, uwhich.max(agglsample[j,]))
+      RET <- factor(classes[RET], levels = classes, labels = classes)
     },
     "prob" = {
       RET <- agglsample / apply(agglsample, 1, sum)
