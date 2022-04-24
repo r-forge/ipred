@@ -31,7 +31,7 @@ The \code{Smoking} data frame has 55 rows and 9 columns.
 
 \references{
 D.J. Hand and C.C. Taylor (1987), 
-\emph{Multivariate analysis of variance and repeated measures.} London: Chapman \&
+\emph{Multivariate analysis of variance and repeated measures.} London: Chapman &
 Hall, pp. 167--181.
 }
 
