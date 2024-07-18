@@ -102,7 +102,7 @@ variables as additional predictors for the classification trees. \code{comb}
 is an optional list of lists with two elements \code{model} and \code{predict}. 
 \code{model} is a function with arguments \code{formula} and \code{data}. 
 \code{predict} is a function with arguments \code{object, newdata} only. If
-the estimation of the covariance matrix in \code{\link{lda}} fails due to a
+the estimation of the covariance matrix in \code{\link[MASS]{lda}} fails due to a
 limited out-of-bag sample size, one can use \code{\link{slda}} instead.
 See the example section for an example of double-bagging. The methodology is
 not limited to a combination with LDA: bundling (Hothorn and Lausen, 2002b) 
